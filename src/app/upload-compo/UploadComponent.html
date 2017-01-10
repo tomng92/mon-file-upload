@@ -1,8 +1,9 @@
 <div style="margin:40px 20px">
-  <input type="file" #monUploadInput multiple="false" name="file" id="file" class="inputfile inputfile-1" (change)="uploadFichier()"/>
+  <input type="file" #monUploadInput multiple="false" name="fileUp" id="fileUp" class="inputfile inputfile-1" (change)="uploadFichier()"/>
 
-  <label for="file">
+  <label for="fileUp">
     <img width="33" height="33" src="./upload-icon.svg">
     <span #monUploadLabel>Veuillez choisir un fichier</span>
+    <input type="button" value="Enlever"
   </label>
 </div>

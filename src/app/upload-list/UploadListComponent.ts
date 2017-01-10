@@ -42,6 +42,8 @@ export class UploadListComponent {
     let uploadWidget: ComponentRef<UploadComponent> = this.container.createComponent(widgetFactory);
     this.listeUpload.push(uploadWidget);
 
+    uploadWidget.instance. =
+
     // ecouter notre enfant
     uploadWidget.instance.notifier.subscribe(event => console.log("emission de notre enfant -----> ", event));
   }
