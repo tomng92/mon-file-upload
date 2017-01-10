@@ -14,7 +14,8 @@ import { RepoListComponent } from './github/repo-list/repo-list.component';
 import { RepoDetailComponent } from './github/repo-detail/repo-detail.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ContactComponent } from './contact/contact.component';
-import {FabianFileUpload} from "./dopost/FabianFileUpload";
+import {UploadListComponent} from "./upload-list/UploadListComponent";
+import {UploadComponent} from "./upload-compo/UploadComponent";
 
 @NgModule({
   declarations: [
@@ -25,8 +26,13 @@ import {FabianFileUpload} from "./dopost/FabianFileUpload";
     RepoDetailComponent,
     HomeComponent,
     ContactComponent,
-    FabianFileUpload
+    UploadListComponent,
+    UploadComponent
+
   ],
+
+  entryComponents: [UploadComponent], // reference a la composante a creer
+
   imports: [
     BrowserModule,
     FormsModule,
