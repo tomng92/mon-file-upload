@@ -14,6 +14,8 @@ export class UploadListComponent {
 
   listeUpload: Array<ComponentRef<UploadComponent>> = new Array();
 
+  curId: number = 1; // pour composer le id du UploadComponent, exemple "monUpload-2"
+
   @ViewChild('uploadContainer', { read: ViewContainerRef }) container: ViewContainerRef;
 
   /**
@@ -28,7 +30,6 @@ export class UploadListComponent {
    */
   ngAfterContentInit() {
     this.addUploadWidget();
-    this.addUploadWidget();
   }
 
   /**
@@ -40,9 +41,11 @@ export class UploadListComponent {
 
     const widgetFactory = this.resolver.resolveComponentFactory(UploadComponent);
     let uploadWidget: ComponentRef<UploadComponent> = this.container.createComponent(widgetFactory);
-    this.listeUpload.push(uploadWidget);
+    let uploadId = "mon-upload-" + this.curId++ ;
+    uploadWidget.instance.monId = uploadId;
+    console.log("===== creation du upload id " + uploadId);
 
-    uploadWidget.instance. =
+    this.listeUpload.push(uploadWidget);
 
     // ecouter notre enfant
     uploadWidget.instance.notifier.subscribe(event => console.log("emission de notre enfant -----> ", event));

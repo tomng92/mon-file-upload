@@ -21,11 +21,15 @@ export class UploadComponent {
 
   @ViewChild('monUploadInput') monUploadRef;
   @ViewChild('monUploadLabel') monUploadLabelRef;
+  @ViewChild('monUploadImg') monUploadImgRef;
+  @ViewChild('divBouton') divBoutonRef;
 
   @Output() notifier: EventEmitter<string> = new EventEmitter<string>();
   // @Input() monContainer : ComponentRef<UploadListComponent>;
 
   fileUploadEtat: string = "etat-debut" ; // variable état du composant "etat-debut" <-> "etat-fin"
+
+  @Input() monId: string;// 'mon-upload-1'
 
   resultatUpload: String;
 
@@ -67,8 +71,10 @@ export class UploadComponent {
 
       // Chnager le label
       this.monUploadLabelRef.nativeElement.innerHTML = fileName;
+      this.monUploadImgRef.nativeElement.style.display = 'none'; // cacher img
 
       this.notifier.emit("fichier choisi!");
+      this.divBoutonRef.nativeElement.style.display = 'block';
       //this.monContainer.notificationDuWidget();
 
       let maxSize = 2*1024*1024;
